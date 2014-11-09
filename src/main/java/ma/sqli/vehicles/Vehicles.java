@@ -26,18 +26,18 @@ public class Vehicles {
 
     private Map<String, Vehicle> vehicles;
 
-    public Vehicles(String vehiclesStr) {
+    public Vehicles(String vehiclesInput) {
         this.vehicles = new HashMap<String, Vehicle>();
-        for (String part:vehiclesStr.split(", ")  ) {
+        for (String part:vehiclesInput.split(", ")  ) {
             Vehicle vehicle = new Vehicle(part);
             this.vehicles.put(vehicle.getId(), vehicle);
         }
     }
 
-    public String move(String id, String closedDoors, String distance) {
+    public String move(String id, String doorsInput, String distanceInput) {
         Vehicle vehicle = this.vehicles.get(id);
-        ReportGenerator report = ReportGeneratorFactory.getReportGenerator(vehicle, closedDoors);
-        return report.render(vehicle, closedDoors, distance);
+        ReportGenerator report = ReportGeneratorFactory.getReportGenerator(vehicle, doorsInput, distanceInput);
+        return report.render();
     }
 
 }

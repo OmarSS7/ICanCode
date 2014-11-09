@@ -7,12 +7,12 @@ public class ReportGeneratorFactory {
 
     private ReportGeneratorFactory(){}
 
-    public static ReportGenerator getReportGenerator(Vehicle vehicle, String doorsInput){
+    public static ReportGenerator getReportGenerator(Vehicle vehicle, String doorsInput, String distanceInput){
         ReportGenerator reportGenerator;
         if (DoorsChecker.checkAllAreClosed(vehicle, doorsInput)){
-            reportGenerator = new DoorsOkReportGenerator();
+            reportGenerator = new DoorsOkReportGenerator(vehicle, doorsInput, distanceInput);
         } else {
-            reportGenerator = new DoorsKoReportGenerator();
+            reportGenerator = new DoorsKoReportGenerator(vehicle, doorsInput, distanceInput);
         }
         return reportGenerator;
     }

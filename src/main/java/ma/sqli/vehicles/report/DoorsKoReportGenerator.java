@@ -4,10 +4,14 @@ import ma.sqli.vehicles.common.Vehicle;
 import ma.sqli.vehicles.door.Door;
 import ma.sqli.vehicles.door.DoorFactory;
 
-public class DoorsKoReportGenerator implements ReportGenerator {
+public class DoorsKoReportGenerator extends AbstractReportGenerator implements ReportGenerator {
+
+    public DoorsKoReportGenerator(Vehicle vehicle, String doorsInput, String distanceInput) {
+        super(vehicle, doorsInput, distanceInput);
+    }
 
     @Override
-    public String render(Vehicle vehicle, String doorsInput, String distanceInput) {
+    public String render() {
 
         StringBuilder canvas = new StringBuilder();
         canvas.append("DOORS KO, BLOCKED \n");

@@ -6,10 +6,14 @@ import ma.sqli.vehicles.utils.DistanceParser;
 
 import java.util.Locale;
 
-public class DoorsOkReportGenerator implements ReportGenerator {
+public class DoorsOkReportGenerator extends AbstractReportGenerator implements ReportGenerator {
+
+    public DoorsOkReportGenerator(Vehicle vehicle, String doorsInput, String distanceInput) {
+        super(vehicle, doorsInput, distanceInput);
+    }
 
     @Override
-    public String render(Vehicle vehicle, String doorsInput, String distanceInput) {
+    public String render() {
         Double distance = DistanceParser.parse(distanceInput);
         Double consumption = ConsumptionCalculator.calculate(vehicle, distance);
         return String.format(Locale.US, "DOORS OK, MOVING. The %s will consume %.2f L", vehicle.getId(), consumption);

@@ -3,7 +3,7 @@ package ma.sqli.vehicles.door;
 public class OpenDoorState extends AbstractDoor implements Door {
 
     OpenDoorState (int position){
-        this.position = position;
+        super(position);
     }
 
     @Override
